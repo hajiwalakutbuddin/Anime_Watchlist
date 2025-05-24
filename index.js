@@ -16,7 +16,7 @@ mongoose.connect("mongodb://localhost:27017/Anime_watchlist")
 .then(() => console.log("MongoDB connected"))
 .catch(err => console.log("MongoDB connection error:", err));
 
-//schema and model 
+//schema and model for watched.pug
 const animeSchema = new mongoose.Schema({ name: String });
 const Anime = mongoose.model("Anime_names", animeSchema);
 
@@ -29,6 +29,13 @@ app.get('/about',(req,res)=>{
     const params = {}
     res.status(200).render('about',params)
 })
+app.post("/comments", async (req, res) => {
+    const { comment } = req.body;
+    if (comment && comment.trim() !== "") {
+        await Comment.create({ comment });
+    }
+    res.redirect("/about");
+});
 
 //add anime
     app.post("/add",async (req, res) => {
@@ -44,10 +51,6 @@ app.post("/delete", async (req, res) => {
     res.redirect("/watched");
 });
 // Watched list
-//   app.get("/watched", async (req, res) => {
-//     const animeList = await Anime.find(); //  Fetch all anime from the database
-//     res.render("watched", { animeList }); //  Render 'watched.pug' and pass animeList data
-// });
 app.get("/watched", async (req, res) => {
     const { letter } = req.query;
     let animeList;
@@ -63,6 +66,13 @@ app.get("/watched", async (req, res) => {
     }
     res.render("watched", { animeList, letter });
 });
+
+//Mongoose schema for comment-box
+const commentSchema = new mongoose.Schema({
+    comment: String,
+    createdAt: { type: Date, default: Date.now }
+});
+const Comment = mongoose.model("Comment", commentSchema);
 
 //Server
 const PORT = process.env.PORT || 5000
