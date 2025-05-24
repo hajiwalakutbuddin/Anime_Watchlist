@@ -44,9 +44,24 @@ app.post("/delete", async (req, res) => {
     res.redirect("/watched");
 });
 // Watched list
-  app.get("/watched", async (req, res) => {
-    const animeList = await Anime.find(); //  Fetch all anime from the database
-    res.render("watched", { animeList }); //  Render 'watched.pug' and pass animeList data
+//   app.get("/watched", async (req, res) => {
+//     const animeList = await Anime.find(); //  Fetch all anime from the database
+//     res.render("watched", { animeList }); //  Render 'watched.pug' and pass animeList data
+// });
+app.get("/watched", async (req, res) => {
+    const { letter } = req.query;
+    let animeList;
+    if (letter === 'special') {
+        // Find anime names that do NOT start with a letter
+        animeList = await Anime.find({ name: { $regex: '^[^a-zA-Z]', $options: 'i' } });
+    } else if (letter) {
+        // Find anime names that start with the selected letter
+        animeList = await Anime.find({ name: new RegExp('^' + letter, 'i') });
+    } else {
+        // Show all anime
+        animeList = await Anime.find();
+    }
+    res.render("watched", { animeList, letter });
 });
 
 //Server

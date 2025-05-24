@@ -1,0 +1,15 @@
+extends layout.pug 
+block style 
+    link(rel="stylesheet", href="/static/CSS/about.css")
+
+block content
+    .container 
+        .write 
+            h1 About This Site
+            p This site is a log of all the anime that i have watched.
+        .comments 
+            h2 Comments
+            p This is a comment section where you can leave your thoughts.
+            form(action="/comments", method="post")
+                textarea(name="comment", placeholder="Leave a comment here...").comment-box
+                button(type="submit") Submit

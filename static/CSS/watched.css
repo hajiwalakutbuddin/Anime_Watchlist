@@ -1,16 +1,68 @@
+.main{
+    background-color: #232946;
+    height: 600px;
+}
 .alphabet {
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .alphabet a {
     margin-right: 5px;
     padding: 5px 8px;
-    border: 1px solid #ccc;
+    border: 2px solid #121629;
     text-decoration: none;
-    color: #333;
+    color: #fffffe;
 }
 
 .active {
-    background-color: #333;
-    color: #fff;
+    background-color: #b8c1ec;
+    color: #232946;
+}
+
+.alphabet a:hover {
+    background-color: #eebbc3;
+    color: #232946;
+}
+
+h1{
+    font-size: 37px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #fffffe;
+    margin-top: 2px;
+    padding: 20px;
+}
+.wm{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    color: #b8c1ec;
+    font-size: 1.7rem;
+}
+.wm li{
+    margin: 10px;
+}
+.btn-2:link,
+.btn-2:visited,
+.btn-2:hover,
+.btn-2:active {
+    text-decoration: none;
+}
+.btn-2{
+    display: block;
+    padding: 10px 20px;
+    background-color: #eebbc3;
+    color: #232946;
+    border-radius: 9px;
+    text-align: center;
+    margin: 20px 280px;
+    font-size: 1.3rem;
+    border: 2px solid #121629;
+}
+.btn-2:hover{
+    background-color: #232946;
+    color: #eebbc3;
 }
