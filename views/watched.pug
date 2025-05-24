@@ -1,0 +1,23 @@
+extends layout.pug 
+
+block style 
+    link(rel="stylesheet", href="/static/CSS/watched.css")
+
+block content
+    h1 Watched Anime
+    
+    .alphabet
+        a(href="/watched") All
+            - for (let c = 65; c <= 90; c++)
+                - const char = String.fromCharCode(c)
+                a(href=`/watched?letter=${char}` class=(letter === char ? 'active' : ''))= char
+
+
+    if animeList && animeList.length
+        ul
+            each anime in animeList
+                li= anime.name
+    else
+        p No anime watched yet.
+
+        a(href="/") ← Back to Home
