@@ -1,6 +1,7 @@
 .main{
     background-color: #232946;
-    height: 600px;
+    height: auto;
+    min-height: 100vh;
 }
 .alphabet {
     margin-bottom: 20px;
@@ -33,16 +34,16 @@ h1{
     margin-top: 2px;
     padding: 20px;
 }
-.wm{
+.anime-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center; */
+    align-items: left;
     margin-top: 20px;
     color: #b8c1ec;
-    font-size: 1.7rem;
+    font-size: 1.2rem;
 }
-.wm li{
+.anime-list li{
     margin: 10px;
 }
 .btn-2:link,
@@ -58,11 +59,16 @@ h1{
     color: #232946;
     border-radius: 9px;
     text-align: center;
-    margin: 20px 280px;
+    margin: 0px 280px;
     font-size: 1.3rem;
     border: 2px solid #121629;
+    transition: box-shadow 0.3s ease;
 }
 .btn-2:hover{
     background-color: #232946;
     color: #eebbc3;
+    transition: background-color 0.3s ease;
+}
+.khl{
+    padding: 50px;
 }

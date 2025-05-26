@@ -1,22 +1,26 @@
 extends layout.pug 
 
 block scripts 
-    script(src="/static/javascript/home.js") 
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js")
+    script(src="/static/javascript/anime.js")
 block style 
     link(rel="stylesheet", href="/static/CSS/home.css")
 block content
     div#home1 
-        h1 My Anime Watchlist
-        p This is a simple anime watchlist application.
-        p You can add, remove, and mark anime as watched.
-        p Enjoy your anime journey!
+        .kow 
+            div#tick-animation(style="display:none; text-align:center;")
+                span(style="font-size:15rem; color:#4BB543;") ✔
+            h1 My Anime Watchlist
+            p This is a simple anime watchlist application.
+            p You can add, remove, and mark anime as watched.
+            p Enjoy your anime journey!
         .add 
             h2 Add Anime
             form(action="/add", method="POST")
-                input(type="text", name="name", placeholder="Add Anime", required)
+                input(type="text", name="name", placeholder="Add Anime", required,autocomplete="off")
                 button(type="submit",class="btn") Add Anime
         .delete
             h2 Delete Anime
             form(action="/delete", method="POST")
-                input(type="text", name="name", placeholder="Delete Anime", required)
+                input(type="text", name="name", placeholder="Delete Anime", required,autocomplete="off")
                 button(type="submit",class="btn") Delete Anime

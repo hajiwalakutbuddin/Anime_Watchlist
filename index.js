@@ -41,7 +41,7 @@ app.post("/comments", async (req, res) => {
     app.post("/add",async (req, res) => {
         const {name} = req.body;
         if (name) await Anime.create({ name });
-        res.redirect("/watched");
+        res.redirect('/?added=1');
     });
 
 //delete anime

@@ -1,5 +1,9 @@
 extends layout.pug 
 
+block scripts 
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js")
+    script(src="/static/javascript/anime.js")
+
 block style 
     link(rel="stylesheet", href="/static/CSS/watched.css")
 
@@ -13,11 +17,13 @@ block content
             - const char = String.fromCharCode(c)
             a(href=`/watched?letter=${char}` class=(letter === char ? 'active' : ''))= char
 
-    .wm 
+    .anime-list 
         if animeList && animeList.length
             ol
                 each anime in animeList
-                    li= anime.name
+                    li.eac
+                        span.anime-text= anime.name
         else
             p No anime watched yet.
-    a.btn-2(href="/") ← Back to Home
+    .khl 
+        a.btn-2(href="/") ← Back to Home

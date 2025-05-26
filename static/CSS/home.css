@@ -1,3 +1,16 @@
+#tick-animation {
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    background: transparent;
+    /* border: 2px solid #121629;
+    color: #232946;
+    padding: 60px 80px;
+    border-radius: 10px; */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
 #home1{
     background-color: #232946;
     height: 600px;
