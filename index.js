@@ -12,7 +12,8 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 
 //Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/Anime_watchlist")
+// mongoose.connect("mongodb://localhost:27017/Anime_watchlist")
+mongoose.connect(process.env.MONGODB_URI)
 .then(() => console.log("MongoDB connected"))
 .catch(err => console.log("MongoDB connection error:", err));
 
