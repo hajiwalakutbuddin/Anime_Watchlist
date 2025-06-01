@@ -21,7 +21,7 @@ mongoose.connect("mongodb://localhost:27017/Anime_watchlist")
 .catch(err => console.log("MongoDB connection error:", err));
 
 //schema and model for watched.pug
-const animeSchema = new mongoose.Schema({ name: String });
+const animeSchema = new mongoose.Schema({ name: String, favorite: { type: Number, default: 0} });
 const Anime = mongoose.model("Anime_names", animeSchema);
 
 //Endpoints
@@ -56,19 +56,31 @@ app.post("/delete", async (req, res) => {
 });
 // Watched list
 app.get("/watched", async (req, res) => {
-    const { letter } = req.query;
+    const { letter, favorite } = req.query;
     let animeList;
-    if (letter === 'special') {
-        // Find anime names that do NOT start with a letter
+
+    if (typeof favorite !== "undefined") {
+        animeList = await Anime.find({ favorite: parseInt(favorite, 10) });
+    } else if (letter === 'special') {
         animeList = await Anime.find({ name: { $regex: '^[^a-zA-Z]', $options: 'i' } });
     } else if (letter) {
-        // Find anime names that start with the selected letter
         animeList = await Anime.find({ name: new RegExp('^' + letter, 'i') });
     } else {
-        // Show all anime
         animeList = await Anime.find();
     }
-    res.render("watched", { animeList, letter });
+    res.render("watched", { animeList, letter, favorite });
+});
+//Favorites
+app.post('/favorite/:id', async (req, res) => {
+    const { id } = req.params;
+    const fav = parseInt(req.body.fav, 10);
+    const letter = req.body.letter;
+    await Anime.findByIdAndUpdate(id, { favorite: fav });
+    if (letter) {
+        res.redirect('/watched?letter=' + letter);
+    } else {
+        res.redirect('/watched');
+    }
 });
 
 //Mongoose schema for comment-box

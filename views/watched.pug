@@ -9,9 +9,11 @@ block style
 
 block content
   .main 
-    h1 Watched Anime   
+    h1.ani  Watched Anime   
     .alphabet
         a(href="/watched") All
+        a(href="/watched?favorite=1" class=(favorite == 1 ? 'active' : '')) ⭐
+        a(href="/watched?favorite=2" class=(favorite == 2 ? 'active' : '')) ⭐⭐
         a(href="/watched?letter=special" class=(letter === 'special' ? 'active' : '')) #
         - for (let c = 65; c <= 90; c++)
             - const char = String.fromCharCode(c)
@@ -23,6 +25,27 @@ block content
                 each anime in animeList
                     li.eac
                         span.anime-text= anime.name
+                        //Favorite buttons
+                        form(action="/favorite/" + anime._id, method="POST", style="display:inline")
+                            if letter
+                                input(type="hidden", name="letter", value=letter)
+                            button(
+                                type="submit",
+                                name="fav",
+                                value=anime.favorite === 1 ? 0 : 1,
+                                class="fav-btn",
+                                style=`color:${anime.favorite >= 1 ? 'gold' : '#b8c1ec'}; font-size:1.3rem; border:none; background:none; cursor:pointer;`
+                            ) ☆
+                        form(action="/favorite/" + anime._id, method="POST", style="display:inline")
+                            if letter
+                                input(type="hidden", name="letter", value=letter)
+                            button(
+                                type="submit",
+                                name="fav",
+                                value=anime.favorite === 2 ? 0 : 2,
+                                class="fav-btn",
+                                style=`color:${anime.favorite == 2 ? 'gold' : '#b8c1ec'}; font-size:1.3rem; border:none; background:none; cursor:pointer;`
+                            ) ☆
         else
             p No anime watched yet.
     .khl 

@@ -53,3 +53,14 @@ document.addEventListener('DOMContentLoaded',function(){
     })
 
 })
+//animation for watched page heading
+document.addEventListener('DOMContentLoaded',function(){
+    anime({
+        targets: '.ani',
+        translateY: [200, 0],
+        opacity: [0, 1],
+        duration: 1000,
+        easing: 'easeOutExpo',
+    })
+
+})

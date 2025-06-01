@@ -41,7 +41,11 @@ h1{
     align-items: left;
     margin-top: 20px;
     color: #b8c1ec;
+    font-size: 1.1rem;
+}
+.anime-list p{
     font-size: 1.2rem;
+    margin: 0px auto;
 }
 .anime-list li{
     margin: 10px;
@@ -71,4 +75,18 @@ h1{
 }
 .khl{
     padding: 50px;
+}
+.fav-btn {
+    font-size: 1.5rem;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #b8c1ec;
+    transition: color 0.2s;
+}
+.fav-btn.gold-star {
+    color: gold;
+}
+.fav-btn:hover {
+    color: gold;
 }
