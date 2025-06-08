@@ -14,6 +14,7 @@
 #home1{
     background-color: #232946;
     height: 600px;
+    min-height: 100vh;
 }
 #home1 h1{
     text-align: center;
