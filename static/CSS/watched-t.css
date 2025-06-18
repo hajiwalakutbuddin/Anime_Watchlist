@@ -1,27 +1,36 @@
-@media (min-width: 1076px) {
+@media (min-width: 800px) and (max-width: 1076px) {
 
-    /* Main container */
+    /* container  */
     .main {
+        /* background-color: #1332cf; */
         background-color: #121629;
         height: auto;
         min-height: 100vh;
         max-width: 100vw;
-        margin: 0 auto;
-        box-sizing: border-box;
+        overflow: hidden;
     }
 
-    /* Alphabet Bar */
+    /* Alphabet-Bar */
     .alphabet {
-        margin-bottom: 20px;
-        text-align: center;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        max-width: 100vw;
+        width: 100%;
+        white-space: nowrap;
+        scrollbar-width: thin;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 8px;
+        justify-self: center;
     }
 
     .alphabet a {
+        flex: 0 0 auto;
         margin-right: 5px;
-        padding: 4px 6px;
+        padding: 5px 8px;
+        text-decoration: none;
         color: #eebbc3;
         border: 2px solid #232946;
-        text-decoration: none;
     }
 
     .active {
@@ -35,22 +44,20 @@
     }
 
     h1 {
-        font-size: 2.4rem;
+        font-size: 37px;
         margin-bottom: 20px;
         text-align: center;
         color: #fffffe;
         margin-top: 2px;
-        padding: 20px 0 10px 0;
-        letter-spacing: 0.02em;
+        padding: 20px;
     }
 
     /* Anime-list */
     .anime-list {
-        width: 100%;
+        width: 95%;
         padding: 0;
         margin: 0 auto;
         box-sizing: border-box;
-        width: 90%;
     }
 
     .anime-list ol {
@@ -61,16 +68,17 @@
 
     li.eac {
         background: #232946;
-        margin: 14px 0;
+        margin: 10px 0;
         border-radius: 10px;
-        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
-        padding: 18px 24px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+        padding: 14px 12px;
         display: flex;
-        flex-direction: row;
         align-items: center;
-        gap: 16px;
+        justify-content: flex-start;
+        gap: 10px;
         transition: background 0.2s;
-        min-height: 56px;
+        flex-direction: column;
+        min-height: 48px;
     }
 
     li.eac:active {
@@ -78,16 +86,16 @@
     }
 
     .anime-row {
+        width: 100%;
         display: flex;
         align-items: center;
         flex: 1 1 auto;
-        gap: 12px;
+        gap: 8px;
         min-width: 0;
-        width: 100%;
     }
 
     .anime-text {
-        font-size: 1.18rem;
+        font-size: 1.08rem;
         color: #eebbc3;
         font-weight: 500;
         flex: 1 1 auto;
@@ -99,6 +107,13 @@
         line-height: 1.4;
         letter-spacing: 0.01em;
         position: relative;
+        min-width: 0;
+    }
+
+    .anime-row,
+    .anime-text,
+    li.eac {
+        min-width: 0;
     }
 
     /* BUTTONS */
@@ -111,22 +126,21 @@
 
     .btn-2 {
         display: block;
-        padding: 12px 28px;
+        padding: 10px 20px;
         background-color: #eebbc3;
         color: #232946;
         border-radius: 9px;
         text-align: center;
-        margin: 28px auto;
+        margin: 20px auto;
         font-size: 1.3rem;
         border: 2px solid #121629;
-        transition: box-shadow 0.3s ease, background 0.3s, color 0.3s;
-        font-weight: 600;
+        transition: box-shadow 0.3s ease;
     }
 
     .btn-2:hover {
         background-color: #232946;
         color: #eebbc3;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        transition: background-color 0.3s ease;
     }
 
     .khl {
@@ -134,15 +148,13 @@
     }
 
     .fav-btn {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
         border: none;
         background: none;
         cursor: pointer;
         color: #b8c1ec;
-        padding: 0 4px;
-        transition: color 0.2s;
-        outline: none;
-        vertical-align: middle;
+        /* transition: color 0.2s;*/
+        padding: 0 2px;
     }
 
     .fav-btn.gold-star {
@@ -153,7 +165,8 @@
         color: gold;
     }
 
-    .fav-btn, form {
+    .fav-btn,
+    form {
         display: inline;
         vertical-align: middle;
     }

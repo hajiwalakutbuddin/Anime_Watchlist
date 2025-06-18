@@ -1,6 +1,7 @@
 #navbar{
     background-color: #232946;
     margin-bottom: 2px;
+    max-width: 100vw;
 }
 #navbar ul{
     list-style: none;

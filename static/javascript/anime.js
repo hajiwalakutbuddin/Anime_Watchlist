@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     anime({
         targets: '.eac',
-        translateX: 90,
+        translateY: '15%' ,
         delay: anime.stagger(40),
         duration: 100,
         easing: 'easeInOutSine',

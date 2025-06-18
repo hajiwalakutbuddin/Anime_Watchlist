@@ -6,6 +6,9 @@ block scripts
 
 block style 
     link(rel="stylesheet", href="/static/CSS/watched.css")
+    link(rel="stylesheet", href="/static/CSS/watched-p.css")
+    link(rel="stylesheet", href="/static/CSS/universal.css")
+    link(rel="stylesheet", href="/static/CSS/watched-t.css")
 
 block content
   .main 
@@ -24,28 +27,29 @@ block content
             ol
                 each anime in animeList
                     li.eac
-                        span.anime-text= anime.name
-                        //Favorite buttons
-                        form(action="/favorite/" + anime._id, method="POST", style="display:inline")
-                            if letter
-                                input(type="hidden", name="letter", value=letter)
-                            button(
-                                type="submit",
-                                name="fav",
-                                value=anime.favorite === 1 ? 0 : 1,
-                                class="fav-btn",
-                                style=`color:${anime.favorite >= 1 ? 'gold' : '#b8c1ec'}; font-size:1.3rem; border:none; background:none; cursor:pointer;`
-                            ) ☆
-                        form(action="/favorite/" + anime._id, method="POST", style="display:inline")
-                            if letter
-                                input(type="hidden", name="letter", value=letter)
-                            button(
-                                type="submit",
-                                name="fav",
-                                value=anime.favorite === 2 ? 0 : 2,
-                                class="fav-btn",
-                                style=`color:${anime.favorite == 2 ? 'gold' : '#b8c1ec'}; font-size:1.3rem; border:none; background:none; cursor:pointer;`
-                            ) ☆
+                        .anime-row 
+                            span.anime-text= anime.name
+                            //Favorite buttons
+                            form(action="/favorite/" + anime._id, method="POST", style="display:inline")
+                                if letter
+                                    input(type="hidden", name="letter", value=letter)
+                                button(
+                                    type="submit",
+                                    name="fav",
+                                    value=anime.favorite === 1 ? 0 : 1,
+                                    class="fav-btn",
+                                    style=`color:${anime.favorite >= 1 ? 'gold' : '#b8c1ec'}; font-size:1.3rem; border:none; background:none; cursor:pointer;`
+                                ) ☆
+                            form(action="/favorite/" + anime._id, method="POST", style="display:inline")
+                                if letter
+                                    input(type="hidden", name="letter", value=letter)
+                                button(
+                                    type="submit",
+                                    name="fav",
+                                    value=anime.favorite === 2 ? 0 : 2,
+                                    class="fav-btn",
+                                    style=`color:${anime.favorite == 2 ? 'gold' : '#b8c1ec'}; font-size:1.3rem; border:none; background:none; cursor:pointer;`
+                                ) ☆
         else
             p No anime watched yet.
     .khl 
