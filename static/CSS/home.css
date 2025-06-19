@@ -12,7 +12,7 @@
     box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 #home1{
-    background-color: #232946;
+    background-color: #121629;
     height: 600px;
     min-height: 100vh;
 }
@@ -34,7 +34,7 @@
     color: #fffffe;
 }
 .add{
-    background-color: #232946;
+    background-color: #121629;
     height: 150px;
     justify-content: center;
     text-align: center;
@@ -53,7 +53,7 @@
     margin-bottom: 17px;
 }
 .delete{
-    background-color: #232946;
+    background-color: #121629;
     height: 150px;
     justify-content: center;
     text-align: center;

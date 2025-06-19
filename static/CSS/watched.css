@@ -9,7 +9,10 @@
         margin: 0 auto;
         box-sizing: border-box;
     }
-
+    .no-watched{
+        font-size: 1.5rem;
+        color: #eebbc3;
+    }
     /* Alphabet Bar */
     .alphabet {
         margin-bottom: 20px;
