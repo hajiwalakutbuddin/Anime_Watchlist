@@ -3,21 +3,7 @@ extends layout.pug
 block scripts 
     script(src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js")
     script(src="/static/javascript/anime.js")
-    //- script(src="/static/javascript/home.js")
-    block scripts
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js")
-    script(src="/static/javascript/anime.js")
-    script.
-        document.addEventListener('DOMContentLoaded', function() {
-            function formatInput(e) {
-                let value = e.target.value.toUpperCase().replace(/ /g, '_');
-                e.target.value = value;
-            }
-            var addInput = document.getElementById('add-anime');
-            var deleteInput = document.getElementById('delete-anime');
-            if(addInput) addInput.addEventListener('input', formatInput);
-            if(deleteInput) deleteInput.addEventListener('input', formatInput);
-        });
+    script(src="/static/javascript/home.js")
 block style 
     link(rel="stylesheet", href="/static/CSS/home.css")
 block content
