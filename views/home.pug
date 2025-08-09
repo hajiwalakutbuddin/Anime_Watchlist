@@ -3,6 +3,21 @@ extends layout.pug
 block scripts 
     script(src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js")
     script(src="/static/javascript/anime.js")
+    //- script(src="/static/javascript/home.js")
+    block scripts
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js")
+    script(src="/static/javascript/anime.js")
+    script.
+        document.addEventListener('DOMContentLoaded', function() {
+            function formatInput(e) {
+                let value = e.target.value.toUpperCase().replace(/ /g, '_');
+                e.target.value = value;
+            }
+            var addInput = document.getElementById('add-anime');
+            var deleteInput = document.getElementById('delete-anime');
+            if(addInput) addInput.addEventListener('input', formatInput);
+            if(deleteInput) deleteInput.addEventListener('input', formatInput);
+        });
 block style 
     link(rel="stylesheet", href="/static/CSS/home.css")
 block content
@@ -17,10 +32,10 @@ block content
         .add 
             h2 Add Anime
             form(action="/add", method="POST")
-                input(type="text", name="name", placeholder="Add Anime", required,autocomplete="off")
+                input#add-anime(type="text", name="name", placeholder="Add Anime", required,autocomplete="off")
                 button(type="submit",class="btn") Add Anime
         .delete
             h2 Delete Anime
             form(action="/delete", method="POST")
-                input(type="text", name="name", placeholder="Delete Anime", required,autocomplete="off")
+                input#delete-anime(type="text", name="name", placeholder="Delete Anime", required,autocomplete="off")
                 button(type="submit",class="btn") Delete Anime

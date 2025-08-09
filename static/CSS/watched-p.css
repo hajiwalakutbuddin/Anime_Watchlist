@@ -192,3 +192,26 @@
         vertical-align: middle;
     }
 }
+.searchbar-container {
+    width: 75vw;
+    max-width: 700px;
+    margin: 16px auto 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+#anime-search {
+    width: 100%;
+    padding: 10px 16px;
+    font-size: 1.1rem;
+    border: 2px solid #b8c1ec;
+    border-radius: 8px;
+    outline: none;
+    background: #232946;
+    color: #eebbc3;
+    transition: border 0.2s;
+}
+
+#anime-search:focus {
+    border-color: #eebbc3;
+}

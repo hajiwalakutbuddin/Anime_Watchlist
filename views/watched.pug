@@ -3,6 +3,7 @@ extends layout.pug
 block scripts 
     script(src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js")
     script(src="/static/javascript/anime.js")
+    script(src="/static/javascript/watched.js")
 
 block style 
     link(rel="stylesheet", href="/static/CSS/watched.css")
@@ -22,6 +23,8 @@ block content
             - const char = String.fromCharCode(c)
             a(href=`/watched?letter=${char}` class=(letter === char ? 'active' : ''))= char
 
+    .searchbar-container
+        input#anime-search(type="text", placeholder="Search anime...", autocomplete="off")
     .anime-list 
         if animeList && animeList.length
             ol
