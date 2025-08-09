@@ -25,7 +25,5 @@
     color: #fff;
     height: 20px;
     text-align: center;
-    /* flex-shrink: 0; */
-    position: sticky;
-    bottom: 0;
+    flex-shrink: 0;
 }

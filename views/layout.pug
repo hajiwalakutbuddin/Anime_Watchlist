@@ -9,15 +9,16 @@ html(lang="en")
         block scripts 
         block style 
     body 
-        section#navbar 
-            ul 
-                li 
-                    a(href="/") Home
-                li 
-                    a(href="/watched") Watched 
-                li 
-                    a(href="/about") About
-        block content
+        .main-container
+            section#navbar 
+                ul 
+                    li 
+                        a(href="/") Home
+                    li 
+                        a(href="/watched") Watched 
+                    li 
+                        a(href="/about") About
+            block content
         section#footer 
             footer 
                 p Anime_watchlist. all rights reserved.
