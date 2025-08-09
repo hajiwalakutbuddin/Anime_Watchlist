@@ -11,9 +11,37 @@ html, body {
     height: 100%;
     margin: 0;
     padding: 0;
+    background: linear-gradient(135deg, #232946 0%, #121629 100%);
 }
 *,
 *::before,
 *::after {
     box-sizing: border-box;
+}
+/* .main, .anime-list, .add, .delete {
+    background: rgba(35, 41, 70, 0.85);
+    backdrop-filter: blur(6px);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+    padding: 24px;
+    margin: 24px auto;
+} */
+a {
+    position: relative;
+    text-decoration: none;
+    color: #eebbc3;
+}
+a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #eebbc3;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+}
+a:hover::after {
+    width: 100%;
 }

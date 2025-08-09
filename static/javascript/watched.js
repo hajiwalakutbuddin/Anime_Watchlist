@@ -9,3 +9,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    var searchInput = document.getElementById('anime-search');
+    if(searchInput) {
+        searchInput.addEventListener('input', function(e) {
+            let value = e.target.value.toUpperCase().replace(/ /g, '_');
+            e.target.value = value;
+        });
+    }
+});

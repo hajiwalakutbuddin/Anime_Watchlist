@@ -17,9 +17,9 @@
   "homepage": "https://github.com/hajiwalakutbuddin/Anime_Watchlist#readme",
   "description": "",
   "dependencies": {
-    "animejs": "^4.0.2",
+    "animejs": "^4.1.2",
     "express": "^5.1.0",
-    "mongoose": "^8.15.0",
+    "mongoose": "^8.17.1",
     "nodemon": "^3.1.10",
     "pug": "^3.0.3"
   }
