@@ -1,80 +1,191 @@
-#tick-animation {
-    position: fixed;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 9999;
-    background: transparent;
-    /* border: 2px solid #121629;
+body {
+    font-family: 'Noto Sans', Arial, sans-serif;
+    background: linear-gradient(120deg, #eebbc3 0%, #b8c1ec 50%, #232946 100%);
     color: #232946;
-    padding: 60px 80px;
-    border-radius: 10px; */
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-}
-#home1{
-    background-color: #121629;
-    height: 600px;
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
-#home1 h1{
-    text-align: center;
-    padding: 20px;
-    font-size: 50px;
-    color: #fffffe;
-}
-#home1 p{
-    text-align: center;
-    font-size: 20px;
-    color: #b8c1ec;
-}
-#home1 h2{
-    text-align: center;
-    padding: 20px;
-    font-size: 30px;
-    color: #fffffe;
-}
-.add{
-    background-color: #121629;
-    height: 150px;
-    justify-content: center;
-    text-align: center;
-}
-.add input{
-    width: 300px;
-    height: 25px;
-    border-radius: 5px;
-    border: none;
-    background-color: #fffffe;
-    color: #232946;
-    text-align: center;
-    font-size: 15px;
-    display: block;
-    margin: auto;
-    margin-bottom: 17px;
-}
-.delete{
-    background-color: #121629;
-    height: 150px;
-    justify-content: center;
-    text-align: center;
-}
-.delete input{
-    width: 300px;
-    height: 25px;
-    border-radius: 5px;
-    border: none;
-    background-color: #fffffe;
-    color: #232946;
-    font-size: 15px;
-    display: block;
-    margin: auto;
-    margin-bottom: 17px;
-    text-align: center;
-}
-.btn{
-    background-color: #eebbc3;
-    color: #232946;
-    border-radius: 5px;
-    padding: 10px;
 
+/* Hero Section */
+.kow {
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(8px);
+    border-radius: 24px;
+    box-shadow: 0 8px 32px rgba(35,41,70,0.18), 0 1.5px 0 #eebbc3 inset;
+    margin: 36px auto 28px auto;
+    max-width: 600px;
+    padding: 48px 32px 32px 32px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    color: #232946;
+}
+.kow::before {
+    content: '';
+    position: absolute;
+    top: -60px; left: -60px;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, #eebbc3 0%, transparent 70%);
+    opacity: 0.25;
+    z-index: 0;
+}
+.kow h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    color: #232946;
+    margin-bottom: 12px;
+    letter-spacing: 0.04em;
+    text-shadow: 0 2px 8px #b8c1ec44;
+    position: relative;
+    z-index: 1;
+}
+.kow p {
+    font-size: 1.25rem;
+    color: #232946;
+    margin: 10px 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Glassy Card Sections */
+.add, .delete {
+    background: #232946;
+    border-radius: 18px;
+    box-shadow: 0 6px 24px rgba(35,41,70,0.16), 0 1.5px 0 #b8c1ec inset;
+    margin: 24px auto;
+    max-width: 420px;
+    padding: 32px 24px 24px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    color: #eebbc3;
+}
+.add h2, .delete h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 18px;
+    color: #eebbc3;
+    letter-spacing: 0.03em;
+    position: relative;
+    z-index: 1;
+}
+.add input, .delete input {
+    width: 80%;
+    min-width: 180px;
+    max-width: 320px;
+    height: 38px;
+    border-radius: 8px;
+    border: 2px solid #eebbc3;
+    background: #fffffe;
+    color: #232946;
+    text-align: center;
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    margin-top: 8px;
+    outline: none;
+    transition: border 0.2s, box-shadow 0.2s;
+    position: relative;
+    z-index: 1;
+}
+.add input:focus, .delete input:focus {
+    border: 2px solid #b8c1ec;
+    box-shadow: 0 0 12px #b8c1ec44;
+}
+
+/* Energetic Button */
+.btn {
+    background: linear-gradient(90deg, #eebbc3 60%, #b8c1ec 100%);
+    color: #232946;
+    border-radius: 10px;
+    padding: 14px 36px;
+    border: none;
+    cursor: pointer;
+    font-size: 1.15rem;
+    font-weight: 700;
+    box-shadow: 0 2px 12px rgba(35,41,70,0.10);
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.1s;
+    margin-top: 8px;
+    letter-spacing: 0.02em;
+    position: relative;
+    z-index: 1;
+}
+.btn:hover {
+    background: linear-gradient(90deg, #232946 60%, #b8c1ec 100%);
+    color: #eebbc3;
+    box-shadow: 0 6px 24px rgba(35,41,70,0.18);
+    transform: scale(1.06) rotate(-1deg);
+}
+
+/* Animated underline for links */
+a {
+    position: relative;
+    color: #232946;
+    text-decoration: none;
+    font-weight: 600;
+}
+a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #eebbc3;
+    transition: width 0.3s;
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+}
+a:hover::after {
+    width: 100%;
+}
+
+/* Section divider */
+.section-divider {
+    border: none;
+    border-top: 2.5px dashed #b8c1ec;
+    margin: 36px 0;
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.7;
+}
+
+/* Subtle fade-in and pop animation for cards */
+.kow, .add, .delete {
+    opacity: 0;
+    animation: fadeInPop 0.9s forwards;
+}
+.kow { animation-delay: 0.1s; }
+.add { animation-delay: 0.3s; }
+.delete { animation-delay: 0.5s; }
+
+@keyframes fadeInPop {
+    from { opacity: 0; transform: scale(0.95) translateY(40px);}
+    to { opacity: 1; transform: scale(1) translateY(0);}
+}
+
+/* Responsive improvements */
+@media (max-width: 700px) {
+    .kow, .add, .delete {
+        max-width: 97vw;
+        padding: 18px 4vw;
+    }
+    .add input, .delete input {
+        width: 95vw;
+        font-size: 1rem;
+    }
+    .kow h1 {
+        font-size: 2.1rem;
+    }
+    .kow p {
+        font-size: 1.05rem;
+    }
+    .add h2, .delete h2 {
+        font-size: 1.3rem;
+    }
+}
+.main-content-inner {
+    background: linear-gradient(135deg, #1f3b4d, #2c5364, #3a6073);
+    color: #232946;
 }

@@ -1,12 +1,11 @@
 @media (min-width: 1076px) {
-
     /* Main container */
     .main {
-        background-color: #121629;
+        background: linear-gradient(135deg, #1f3b4d, #2c5364, #3a6073);
         height: auto;
         min-height: 100vh;
         max-width: 100vw;
-        margin: 0 auto;
+        /* margin: 0 auto; */
         box-sizing: border-box;
     }
     .no-watched{
@@ -26,12 +25,12 @@
         border: 2px solid #232946;
         text-decoration: none;
     }
-
+    
     .active {
         background-color: #b8c1ec;
         color: #232946;
     }
-
+    
     .alphabet a:hover {
         background-color: #eebbc3;
         color: #232946;
@@ -46,7 +45,7 @@
         padding: 20px 0 10px 0;
         letter-spacing: 0.02em;
     }
-
+    
     /* Anime-list */
     .anime-list {
         width: 100%;
@@ -76,17 +75,17 @@
         min-height: 56px;
         position: relative;
     }
-
+    
     li.eac:active {
         background: #1a1a2e;
     }
-
+    
     li.eac:hover {
         box-shadow: 0 8px 24px rgba(0,0,0,0.18);
         transform: translateY(-2px) scale(1.01);
         background: #1a1a2e;
     }
-
+    
     .anime-row {
         display: flex;
         align-items: center;
@@ -95,7 +94,7 @@
         min-width: 0;
         width: 100%;
     }
-
+    
     .anime-text {
         font-size: 1.18rem;
         color: #eebbc3;
@@ -110,7 +109,7 @@
         letter-spacing: 0.01em;
         position: relative;
     }
-
+    
     /* BUTTONS */
     .btn-2:link,
     .btn-2:visited,
@@ -132,17 +131,17 @@
         transition: box-shadow 0.3s ease, background 0.3s, color 0.3s;
         font-weight: 600;
     }
-
+    
     .btn-2:hover {
         background-color: #232946;
         color: #eebbc3;
         box-shadow: 0 2px 8px rgba(0,0,0,0.12);
     }
-
+    
     .khl {
         padding: 50px;
     }
-
+    
     .fav-btn {
         font-size: 1.5rem;
         border: none;
@@ -154,15 +153,15 @@
         outline: none;
         vertical-align: middle;
     }
-
+    
     .fav-btn.gold-star {
         color: gold;
     }
-
+    
     .fav-btn:hover {
         color: gold;
     }
-
+    
     .fav-btn, form {
         display: inline;
         vertical-align: middle;
@@ -191,37 +190,7 @@
 #anime-search:focus {
     border-color: #eebbc3;
 }
-a {
-    position: relative;
-    text-decoration: none;
-    color: #eebbc3;
-}
-a::after {
-    content: '';
-    display: block;
-    width: 0;
-    height: 2px;
-    background: #eebbc3;
-    transition: width 0.3s;
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-}
-a:hover::after {
-    width: 100%;
-}
-/* li.eac {
-    opacity: 0;
-    transform: translateY(30px);
-    animation: fadeInUp 0.6s forwards;
-    animation-delay: calc(var(--i, 0) * 0.07s);
-}
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: none;
-    }
-} */
+
 ::-webkit-scrollbar {
     height: 8px;
     background: #232946;
@@ -230,8 +199,11 @@ a:hover::after {
     background: #b8c1ec;
     border-radius: 4px;
 }
-/* .section-divider {
-    border: none;
-    border-top: 2px solid #b8c1ec;
-    margin: 32px 0;
-} */
+::-webkit-scrollbar-thumb:hover {
+    background: #eebbc3;
+}
+body {
+    background: linear-gradient(120deg, #fff 0%, #eebbc3 60%, #b8c1ec 100%);
+    /* or use any solid color: */
+    /* background: #f7f7fa; */
+}

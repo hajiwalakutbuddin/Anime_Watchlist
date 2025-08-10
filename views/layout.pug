@@ -1,24 +1,27 @@
 doctype html
 html(lang="en")
-    head
-        meta(charset="UTF-8")
-        meta(name="viewport", content="width=device-width, initial-scale=1.0")
-        title Anime_Watchlist 
-        link(rel="stylesheet", href="/static/CSS/nav-foot.css")
-        link(rel="stylesheet", href="/static/CSS/universal.css")
-        block scripts 
-        block style 
-    body 
-        .main-container
-            section#navbar 
-                ul 
-                    li 
-                        a(href="/") Home
-                    li 
-                        a(href="/watched") Watched 
-                    li 
-                        a(href="/about") About
-            block content
-        section#footer 
-            footer 
-                p Anime_watchlist. all rights reserved.
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Anime_Watchlist 
+    link(rel="stylesheet", href="/static/CSS/nav-foot.css")
+    link(rel="stylesheet", href="/static/CSS/universal.css")
+    block style
+    block head
+  body
+    section#navbar
+      ul
+        li 
+          a(href="/") Home
+        li 
+          a(href="/watched") Watched 
+        li 
+          a(href="/about") About
+
+    .main-content
+      block content
+
+    #footer
+      p Anime_watchlist. all rights reserved.
+
+    block scripts

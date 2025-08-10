@@ -1,66 +1,75 @@
-//animation of anime names on watched page
+// Animate anime names on watched page (fade in + slight upward movement)
 document.addEventListener('DOMContentLoaded', function() {
-    anime({
-        targets: '.eac',
-        translateY: '15%' ,
-        delay: anime.stagger(40),
-        duration: 100,
-        easing: 'easeInOutSine',
-    });
+    if (document.querySelector('.eac')) {
+        anime({
+            targets: '.eac',
+            opacity: [0, 1],
+            translateY: [40, 0],
+            delay: anime.stagger(80),
+            duration: 600,
+            easing: 'easeOutCubic',
+        });
+    }
 });
-//home page tick animation
+
+// Animate watched page heading (slide in from left)
 document.addEventListener('DOMContentLoaded', function() {
-    // Check for ?added=1 or ?deleted=1 in the URL
+    if (document.querySelector('.ani')) {
+        anime({
+            targets: '.ani',
+            opacity: [0, 1],
+            translateX: [-100, 0],
+            duration: 900,
+            easing: 'easeOutExpo',
+        });
+    }
+});
+
+// Animate homepage content (fade in + scale up)
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('.kow') || document.querySelector('.add') || document.querySelector('.delete')) {
+        anime({
+            targets: '.kow, .add, .delete',
+            opacity: [0, 1],
+            scale: [0.95, 1],
+            delay: anime.stagger(120),
+            duration: 700,
+            easing: 'easeOutBack',
+        });
+    }
+});
+
+// Animate tick on home page (pop in)
+document.addEventListener('DOMContentLoaded', function() {
     if (window.location.search.includes('added=1') || window.location.search.includes('deleted=1')) {
         const tick = document.getElementById('tick-animation');
         if (tick) {
             tick.style.display = 'block';
-            // Animate the tick with Anime.js
             anime({
                 targets: '#tick-animation span',
                 scale: [0, 1.5, 1],
+                opacity: [0, 1],
                 duration: 700,
                 easing: 'easeOutElastic(1, .8)'
             });
-            // Hide after 1.5 seconds
             setTimeout(() => {
                 tick.style.display = 'none';
-                // Remove the query string from the URL without reloading
                 window.history.replaceState({}, document.title, window.location.pathname);
             }, 650);
         }
     }
 });
-//animation for homepage content
-document.addEventListener('DOMContentLoaded',function(){
-    anime({
-        targets: '.kow, .add, .delete',
-        translateY: [200, 0],
-        opacity: [0, 1],
-        duration: 1000,
-        easing: 'easeOutExpo',
-    })
 
-})
-//animation for about page content
-document.addEventListener('DOMContentLoaded',function(){
-    anime({
-        targets: '.write, .comments',
-        translateY: [200, 0],
-        opacity: [0, 1],
-        duration: 1000,
-        easing: 'easeOutExpo',
-    })
-
-})
-//animation for watched page heading
-document.addEventListener('DOMContentLoaded',function(){
-    anime({
-        targets: '.ani',
-        translateY: [200, 0],
-        opacity: [0, 1],
-        duration: 1000,
-        easing: 'easeOutExpo',
-    })
-
-})
+// Animate about page content (fade in + slide up)
+document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('.write') || document.querySelector('.comments')) {
+        anime({
+            targets: '.write, .comments',
+            opacity: [0, 1],
+            translateY: [60, 0],
+            delay: anime.stagger(150),
+            duration: 800,
+            easing: 'easeOutExpo',
+        });
+    }
+});
