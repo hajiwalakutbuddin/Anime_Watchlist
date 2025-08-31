@@ -57,8 +57,12 @@
 
     .anime-list ol {
         list-style: none;
+        /* list-style-position: inside; */
+        /* list-style-type: decimal; */
         padding: 0;
         margin: 0;
+        counter-reset: anime-counter;
+        list-style: none !important;
     }
 
     li.eac {
@@ -70,12 +74,24 @@
         display: flex;
         flex-direction: row;
         align-items: center;
+        list-style-type: none !important;
         gap: 16px;
         transition: box-shadow 0.2s, transform 0.2s, background 0.2s;
         min-height: 56px;
         position: relative;
+        min-width: 0;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        padding-left: 0.5em;
+        counter-increment: anime-counter;
     }
-    
+    li.eac::before {
+    content: counter(anime-counter) ". ";
+    font-weight: bold;
+    color: #b8c1ec;
+    margin-right: 12px;
+    font-size: 1.1rem;
+    } 
     li.eac:active {
         background: #1a1a2e;
     }
